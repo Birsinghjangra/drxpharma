@@ -1,22 +1,21 @@
 Options -Indexes
 DirectoryIndex index.php
 
-# Block direct access to sensitive files
-<FilesMatch "\.(json|sql|log|tmp|bak|sh)$">
-    Order allow,deny
-    Deny from all
+# Block direct access to sensitive file types
+<FilesMatch "\.(json|sql|log|tmp|bak|sh|md)$">
+    Require all denied
 </FilesMatch>
 
-# Block direct access to config/helpers/views/data directories
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
 
-    # Block direct access to internal directories
-    RewriteRule ^(config|helpers|views|data)/ - [F,L]
+    # Block internal directories
+    RewriteRule ^(config|helpers|views|data|\.git)(/|$) - [F,L]
 
-    # Optionally force all requests through index.php (uncomment if needed)
-    # RewriteCond %{REQUEST_FILENAME} !-f
-    # RewriteCond %{REQUEST_FILENAME} !-d
-    # RewriteRule ^(.*)$ index.php [QSA,L]
+    # Static assets live in public/assets but are served at /assets/...
+    RewriteRule ^assets/(.*)$ public/assets/$1 [L]
+
+    # Page files must never be opened directly - send everything to the router
+    RewriteRule ^public/(?!assets/) index.php [R=302,L]
 </IfModule>
