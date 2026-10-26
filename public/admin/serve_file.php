@@ -2,7 +2,7 @@
 /**
  * DRXStore - Secure File Server for prescriptions
  * Serves uploaded files (prescriptions) through PHP, avoiding direct web access 403s
- * Developed by Vineet
+ * Developed by Devendra
  */
 if (!defined('ROOT')) define('ROOT', dirname(dirname(dirname(__FILE__))));
 require_once ROOT.'/config/app.php';

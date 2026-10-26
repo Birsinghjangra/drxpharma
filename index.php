@@ -2,7 +2,7 @@
 /**
  * DRXStore v1.0 - Front Controller
  * Works from root OR any subdirectory (drxstore, webroot, etc.)
- * Developed by Vineet
+ * Developed by Devendra
  */
 
 // Buffer ALL output - prevents "headers already sent" from any warning/notice

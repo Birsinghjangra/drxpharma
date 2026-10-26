@@ -1,7 +1,7 @@
 <?php
 /**
  * DRXStore - Helper Functions
- * Developed by Vineet
+ * Developed by Devendra
  */
 
 /* ── Output ── */
@@ -22,7 +22,7 @@ function currencySymbol(): string {
     $codeMap = ['INR'=>'&#8377;','USD'=>'$','EUR'=>'&euro;','GBP'=>'&pound;','JPY'=>'&#165;'];
     if (isset($codeMap[$raw])) { $sym = $codeMap[$raw]; return $sym; }
     // Detect raw UTF-8 rupee character ₹ (U+20B9) and common variants
-    if ($raw === "â¹" || $raw === '₹') { $sym = '&#8377;'; return $sym; }
+    if ($raw === "â¹" || $raw === '₹') { $sym = '&#8377;'; return $sym; }
     if ($raw === '€') { $sym = '&euro;'; return $sym; }
     if ($raw === '£') { $sym = '&pound;'; return $sym; }
     // Anything that looks corrupted (contains '?', is empty, too long, non-ASCII junk)
@@ -220,15 +220,13 @@ code{background:#f1f3f6;padding:2px 6px;border-radius:4px;font-family:monospace}
 <div class="wrap">
   <div class="hdr"><h1>{$store}</h1><p>{$title}</p></div>
   <div class="body">{$body}</div>
-  <div class="footer">Developed with &#x1FAC0; by <strong>Vineet</strong> &nbsp;&bull;&nbsp; &copy; {$year} {$store}</div>
+  <div class="footer">Developed with &#x1FAC0; by <strong>Devendra</strong> &nbsp;&bull;&nbsp; &copy; {$year} {$store}</div>
 </div></body></html>
 HTML;
 }
 
 // Alias
 function mailWrap(string $title, string $body): string { return mailTemplate($title, $body); }
-
-/* ── Base URL (auto-detected, works from root or subdirectory) ── */
 
 /* ── Amount in Words (INR) ── */
 function amountInWords(float $amount): string {
@@ -252,16 +250,27 @@ function amountInWords(float $amount): string {
     return $words;
 }
 
+/* ── Base URL (auto-detected, works from root or subdirectory) ── */
 function baseUrl(): string {
     static $base = null;
     if ($base !== null) return $base;
+
     // Method 1: DOCUMENT_ROOT vs physical app path
     $docRoot = rtrim(str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT'] ?? ''), '/');
+
+    // NEW (Render/Docker): web root is already the "public" folder,
+    // so the site lives at the domain root and no prefix is needed.
+    if (substr($docRoot, -7) === '/public') {
+        $base = '';
+        return $base;
+    }
+
     $appRoot = rtrim(str_replace('\\', '/', ROOT), '/');
     if ($docRoot !== '' && strpos($appRoot, $docRoot) === 0) {
         $base = rtrim(str_replace($docRoot, '', $appRoot), '/');
         return $base;
     }
+
     // Method 2: SCRIPT_NAME
     $script = str_replace('\\', '/', $_SERVER['SCRIPT_NAME'] ?? '');
     $dir    = dirname($script);

@@ -1,7 +1,7 @@
 <?php
 /**
  * DRXStore - Admin Login
- * Developed by Vineet | psvineet@zohomail.in
+ * Developed by Devendra | psDevendra@zohomail.in
  */
 if (!defined('ROOT')) define('ROOT', dirname(dirname(dirname(__FILE__))));
 require_once ROOT . '/config/app.php';
@@ -88,7 +88,7 @@ $cfg = getSettings();
     <a href="index.php?p=cust_login" class="btn btn-ghost btn-sm">Patient Login</a>
   </div>
 
-  <div class="auth-footer">Developed with &#x1FAC0; by <strong>Vineet</strong></div>
+  <div class="auth-footer">Developed with &#x1FAC0; by <strong>Devendra</strong></div>
 </div>
 </div>
 <script src="<?php echo assetUrl('assets/js/app.js'); ?>"></script>

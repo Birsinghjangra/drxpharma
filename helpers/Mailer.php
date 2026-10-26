@@ -3,7 +3,7 @@
  * DRXStore - SMTP Mailer
  * Full SMTP implementation (no external dependencies)
  * Falls back to PHP mail() if SMTP not configured.
- * Developed by Vineet
+ * Developed by Devendra
  */
 class Mailer {
     private array $cfg;

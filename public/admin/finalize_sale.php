@@ -2,7 +2,7 @@
 /**
  * DRXStore - Finalize Sale
  * Uses per-medicine GST rate. Default 18% if not set.
- * Developed by Vineet
+ * Developed by Devendra
  */
 if (!defined('ROOT')) define('ROOT', dirname(dirname(dirname(__FILE__))));
 require_once ROOT.'/config/app.php';

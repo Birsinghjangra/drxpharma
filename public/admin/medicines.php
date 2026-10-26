@@ -1,7 +1,7 @@
 <?php
 /**
  * DRXStore - Medicines with inline Import (CSV/XLSX) + Other category
- * Developed by Vineet
+ * Developed by Devendra
  */
 if (!defined('ROOT')) define('ROOT', dirname(dirname(dirname(__FILE__))));
 require_once ROOT.'/config/app.php';

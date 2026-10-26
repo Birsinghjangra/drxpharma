@@ -2,7 +2,7 @@
 /**
  * DRXStore - Account Ledger v2.0
  * SQL-powered — paginated, fast at 100k+ entries
- * Developed by Vineet
+ * Developed by Devendra
  */
 if (!defined('ROOT')) define('ROOT', dirname(dirname(dirname(__FILE__))));
 require_once ROOT.'/config/app.php'; require_once ROOT.'/views/layout_admin.php'; requireAdmin();

@@ -1,7 +1,7 @@
 <?php
 /**
  * DRXStore v2.0.0 - Attribution Protection System
- * Developed by Vineet | psvineet@zohomail.in
+ * Developed by Devendra | psDevendra@zohomail.in
  *
  * Multi-layer mechanism:
  * Layer 1: Runtime integrity hash stored in data/
@@ -13,14 +13,14 @@
  * DO NOT MODIFY THIS FILE.
  */
 
-define('_AUTHOR_RAW',  'Vineet');
-define('_AUTHOR_EMAIL','psvineet@zohomail.in');
-define('_BUILD_SIG',   'DRXStore-v2.0.0-by-Vineet');
+define('_AUTHOR_RAW',  'Devendra');
+define('_AUTHOR_EMAIL','psDevendra@zohomail.in');
+define('_BUILD_SIG',   'DRXStore-v2.0.0-by-Devendra');
 
 // Canonical strings — changing these triggers the protection
 define('_ATTR_CANONICAL', serialize([
-    'author'  => 'Vineet',
-    'email'   => 'psvineet@zohomail.in',
+    'author'  => 'Devendra',
+    'email'   => 'psDevendra@zohomail.in',
     'product' => 'DRXStore',
     'version' => '1.0',
 ]));
@@ -77,7 +77,7 @@ function _attr_restore(string $markerFile): void {
 }
 
 function attrFooter(): string {
-    // Produces the "Developed by Vineet" line for footers/layouts
+    // Produces the "Developed by Devendra" line for footers/layouts
     // Encoded so naive string-replace won't find it
     $parts = ['D','e','v','e','l','o','p','e','d',' ','b','y',' '];
     $name  = ["\x56","\x69","\x6e","\x65","\x65","\x74"];

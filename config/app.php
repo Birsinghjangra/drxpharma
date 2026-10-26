@@ -1,13 +1,13 @@
 <?php
 /**
  * DRXStore - Application Bootstrap
- * Developed by Vineet
+ * Developed by Devendra
  */
 
 if (!defined('APP_NAME'))    define('APP_NAME',    'DRXStore');
 if (!defined('APP_VERSION')) define('APP_VERSION', '2.0.0');
-if (!defined('APP_AUTHOR'))  define('APP_AUTHOR',  'Vineet');
-if (!defined('ADMIN_EMAIL')) define('ADMIN_EMAIL', 'psvineet@zohomail.in');
+if (!defined('APP_AUTHOR'))  define('APP_AUTHOR',  'Devendra');
+if (!defined('ADMIN_EMAIL')) define('ADMIN_EMAIL', 'psDevendra@zohomail.in');
 
 if (!defined('ROOT'))     define('ROOT',     dirname(__DIR__));
 if (!defined('DATA_DIR')) define('DATA_DIR', ROOT . '/data');

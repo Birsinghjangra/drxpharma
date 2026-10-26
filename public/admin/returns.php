@@ -2,7 +2,7 @@
 /**
  * DRXStore - Returns Management
  * Admin processes returns; customer requests are auto-populated
- * Developed by Vineet
+ * Developed by Devendra
  */
 if (!defined('ROOT')) define('ROOT', dirname(dirname(dirname(__FILE__))));
 require_once ROOT.'/config/app.php';

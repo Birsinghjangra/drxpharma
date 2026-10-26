@@ -1,6 +1,6 @@
 /**
  * DRXStore v1.0 — App JavaScript
- * Developed by Vineet
+ * Developed by Devendra
  */
 
 /* ── Modal helpers (needed early by inline onclick) ── */

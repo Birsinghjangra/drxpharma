@@ -1,7 +1,7 @@
 <?php
 /**
  * SMTP test endpoint
- * Developed by Vineet
+ * Developed by Devendra
  */
 if (!defined('ROOT')) define('ROOT', dirname(dirname(dirname(__FILE__))));
 require_once ROOT.'/config/app.php';

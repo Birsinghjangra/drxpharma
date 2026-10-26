@@ -2,7 +2,7 @@
 /**
  * DRXStore - Analytics & Reports v2.0
  * SQL-powered — no full table loads, works fast at 100k+ records
- * Developed by Vineet
+ * Developed by Devendra
  */
 if (!defined('ROOT')) define('ROOT', dirname(dirname(dirname(__FILE__))));
 require_once ROOT . '/config/app.php';

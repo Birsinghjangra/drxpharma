@@ -1,7 +1,7 @@
 <?php
 /**
  * DRXStore v4 - Portal Layout (Supplier + Customer)
- * Developed by Vineet | psvineet@zohomail.in
+ * Developed by Devendra | psDevendra@zohomail.in
  */
 function _portalNavIcon(string $name): string {
     $icons = [
@@ -65,7 +65,7 @@ function portalHeader(string $title, string $type, string $activePage, array $na
     }
     echo '<li><a href="index.php?p=logout" data-confirm="Sign out?">' . _portalNavIcon('logout') . 'Sign Out</a></li>' . "\n";
     echo '</ul>';
-    echo '<div class="sb-foot">Developed with 🫀 by <strong>Vineet</strong></div>';
+    echo '<div class="sb-foot">Developed with 🫀 by <strong>Devendra</strong></div>';
     echo '</nav>' . "\n";
 
     echo '<div class="main-content"><header class="topbar">';

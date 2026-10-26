@@ -1,5 +1,5 @@
 # DRXStore v2.0.0 — Complete Pharmacy Management System
-**Developed by Vineet | ci.vps@proton.me**
+**Developed by Devendra | ci.vps@proton.me**
 
 ---
 
@@ -49,7 +49,7 @@
 - View purchase history with printable invoices
 - Submit return requests (store notified by email)
 - Profile management
-- Forgot password → contact `psvineet@zohomail.in`
+- Forgot password → contact `psDevendra@zohomail.in`
 
 ### Security
 - BCrypt password hashing
@@ -99,8 +99,8 @@ drxstore/
 ---
 
 ## 📧 Contact
-**Developer:** Vineet  
+**Developer:** Devendra  
 **Email:** ci.vps@proton.me
 ---
 
-*DRXStore v2.0.0 — Built with ❤️ by Vineet*
+*DRXStore v2.0.0 — Built with ❤️ by Devendra*

@@ -2,7 +2,7 @@
 /**
  * DRXStore - Sales History v2.0
  * SQL-powered search, filter, count — no full table loads
- * Developed by Vineet
+ * Developed by Devendra
  */
 if (!defined('ROOT')) define('ROOT', dirname(dirname(dirname(__FILE__))));
 require_once ROOT.'/config/app.php'; require_once ROOT.'/views/layout_admin.php'; requireStaff();

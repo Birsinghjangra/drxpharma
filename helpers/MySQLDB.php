@@ -4,7 +4,7 @@
  * - All operations use SQL directly (no full table loads)
  * - Indexes auto-created on first boot
  * - Raw PDO exposed for SQL aggregation in reports/ledger
- * Developed by Vineet
+ * Developed by Devendra
  */
 class MySQLDB {
     private PDO $pdo;

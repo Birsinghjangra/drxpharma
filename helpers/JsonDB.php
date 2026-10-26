@@ -1,7 +1,7 @@
 <?php
 /**
  * DRXStore - JsonDB Engine
- * Developed by Vineet | psvineet@zohomail.in
+ * Developed by Devendra | psDevendra@zohomail.in
  */
 class JsonDB {
     private string $dir;

@@ -1,7 +1,7 @@
 <?php
 /**
  * DRXStore - Customer/Patient Login
- * Developed by Vineet
+ * Developed by Devendra
  */
 if (!defined('ROOT')) define('ROOT', dirname(dirname(dirname(__FILE__))));
 require_once ROOT.'/config/app.php';
@@ -93,7 +93,7 @@ $cfg = getSettings();
     <a href="index.php?p=login" class="btn btn-ghost btn-sm">Admin</a>
     <a href="index.php?p=sup_login" class="btn btn-ghost btn-sm">Supplier</a>
   </div>
-  <div class="auth-footer">Developed with &#x1FAC0; by <strong>Vineet</strong></div>
+  <div class="auth-footer">Developed with &#x1FAC0; by <strong>Devendra</strong></div>
 </div>
 </div>
 <script src="<?=assetUrl('assets/js/app.js')?>"></script>

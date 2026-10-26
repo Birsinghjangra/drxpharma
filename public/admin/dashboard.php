@@ -1,7 +1,7 @@
 <?php
 /**
  * DRXStore - Admin Dashboard
- * Developed by Vineet | psvineet@zohomail.in
+ * Developed by Devendra | psDevendra@zohomail.in
  */
 if (!defined('ROOT')) define('ROOT', dirname(dirname(dirname(__FILE__))));
 require_once ROOT . '/config/app.php';

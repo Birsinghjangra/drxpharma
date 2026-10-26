@@ -1,7 +1,7 @@
 <?php
 if (!defined('ROOT')) define('ROOT', dirname(dirname(dirname(__FILE__))));
 /**
- * DRXStore - Batches/Stock | Developed by Vineet | psvineet@zohomail.in
+ * DRXStore - Batches/Stock | Developed by Devendra | psDevendra@zohomail.in
  */
 require_once ROOT.'/config/app.php'; require_once ROOT.'/views/layout_admin.php'; requireStaff();
 $medMap=[]; foreach($db->table('medicines') as $m) $medMap[$m['id']]=$m;

@@ -2,7 +2,7 @@
 /**
  * DRXStore - Supplier Portal: Contact Store
  * Shows sent messages AND admin replies in a thread view
- * Developed by Vineet
+ * Developed by Devendra
  */
 if (!defined('ROOT')) define('ROOT', dirname(dirname(dirname(__FILE__))));
 require_once ROOT.'/config/app.php';

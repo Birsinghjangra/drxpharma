@@ -1,7 +1,7 @@
 <?php
 /**
  * DRXStore v4 - Admin Layout
- * Developed by Vineet | psvineet@zohomail.in
+ * Developed by Devendra | psDevendra@zohomail.in
  */
 
 // SVG icon library - all inline, no emoji, no font icons
@@ -160,7 +160,7 @@ function adminHeader(string $title, string $activePage = ''): void {
     echo _navItem('logout','Sign Out','logout','');
     echo '</ul>';
 
-    echo '<div class="sb-foot">Developed with 🫀 by <strong>Vineet</strong></div>';
+    echo '<div class="sb-foot">Developed with 🫀 by <strong>Devendra</strong></div>';
     echo '</nav>' . "\n";
 
     // Main
