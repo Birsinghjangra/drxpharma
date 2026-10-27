@@ -63,6 +63,7 @@ $routes = [
     // Admin
     'dashboard'   => 'admin/dashboard',
     'medicines'   => 'admin/medicines',
+    'import_med'  => 'admin/import_medicines',
     'batches'     => 'admin/batches',
     'adjust'      => 'admin/adjust_stock',
     'suppliers'   => 'admin/suppliers',
