@@ -26,11 +26,53 @@ class Mailer {
     }
 
     public function send(string $to, string $subject, string $htmlBody): bool {
+        // HTTPS email API (Brevo) - works on hosts that block SMTP ports (e.g. Render free tier)
+        if (getenv('BREVO_API_KEY')) {
+            return $this->sendBrevo($to, $subject, $htmlBody);
+        }
         // Use SMTP if configured, otherwise fall back to mail()
         if (!empty($this->cfg['host']) && !empty($this->cfg['user'])) {
             return $this->sendSmtp($to, $subject, $htmlBody);
         }
         return $this->sendMail($to, $subject, $htmlBody);
+    }
+
+    /**
+     * Send via Brevo HTTPS API (port 443). Needs env vars:
+     *   BREVO_API_KEY, MAIL_FROM (a sender verified in Brevo), MAIL_FROM_NAME (optional)
+     */
+    private function sendBrevo(string $to, string $subject, string $htmlBody): bool {
+        $from = getenv('MAIL_FROM') ?: ($this->cfg['from'] ?? ADMIN_EMAIL);
+        $name = getenv('MAIL_FROM_NAME') ?: ($this->cfg['name'] ?? APP_NAME);
+        $url  = getenv('BREVO_API_URL') ?: 'https://api.brevo.com/v3/smtp/email';
+        $payload = json_encode([
+            'sender'      => ['name' => $name, 'email' => $from],
+            'to'          => [['email' => $to]],
+            'subject'     => $subject,
+            'htmlContent' => $htmlBody,
+        ]);
+        $headers = ['accept: application/json', 'content-type: application/json', 'api-key: ' . getenv('BREVO_API_KEY')];
+
+        if (function_exists('curl_init')) {
+            $ch = curl_init($url);
+            curl_setopt_array($ch, [
+                CURLOPT_POST => true, CURLOPT_POSTFIELDS => $payload, CURLOPT_HTTPHEADER => $headers,
+                CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 20,
+            ]);
+            $resp = curl_exec($ch);
+            $code = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $err  = curl_error($ch);
+            curl_close($ch);
+        } else {
+            $ctx  = stream_context_create(['http' => ['method' => 'POST', 'header' => implode("\r\n", $headers),
+                     'content' => $payload, 'timeout' => 20, 'ignore_errors' => true]]);
+            $resp = @file_get_contents($url, false, $ctx);
+            $code = 0; $err = '';
+            foreach (($http_response_header ?? []) as $h) if (preg_match('#^HTTP/\S+\s+(\d{3})#', $h, $m)) $code = (int)$m[1];
+        }
+        if ($code >= 200 && $code < 300) return true;
+        error_log("DRXStore Brevo mail failed (HTTP {$code}) {$err} " . (is_string($resp) ? substr($resp, 0, 300) : ''));
+        return false;
     }
 
     private function sendMail(string $to, string $subject, string $body): bool {
