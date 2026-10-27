@@ -258,13 +258,6 @@ function baseUrl(): string {
     // Method 1: DOCUMENT_ROOT vs physical app path
     $docRoot = rtrim(str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT'] ?? ''), '/');
 
-    // NEW (Render/Docker): web root is already the "public" folder,
-    // so the site lives at the domain root and no prefix is needed.
-    if (substr($docRoot, -7) === '/public') {
-        $base = '';
-        return $base;
-    }
-
     $appRoot = rtrim(str_replace('\\', '/', ROOT), '/');
     if ($docRoot !== '' && strpos($appRoot, $docRoot) === 0) {
         $base = rtrim(str_replace($docRoot, '', $appRoot), '/');

@@ -2,21 +2,19 @@ Options -Indexes
 DirectoryIndex index.php
 
 # Block direct access to sensitive files
-<FilesMatch "\.(json|sql|log|tmp|bak|sh)$">
-    Order allow,deny
-    Deny from all
+<FilesMatch "\.(json|sql|log|tmp|bak|sh|md)$">
+    Require all denied
+</FilesMatch>
+<FilesMatch "^(Dockerfile|\.attr_marker|\.alert_sent_.*)$">
+    Require all denied
 </FilesMatch>
 
-# Block direct access to config/helpers/views/data directories
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
 
-    # Block direct access to internal directories
-    RewriteRule ^(config|helpers|views|data)/ - [F,L]
-
-    # Optionally force all requests through index.php (uncomment if needed)
-    # RewriteCond %{REQUEST_FILENAME} !-f
-    # RewriteCond %{REQUEST_FILENAME} !-d
-    # RewriteRule ^(.*)$ index.php [QSA,L]
+    # Block internal directories, git, and direct hits on page files
+    # (pages are only meant to be loaded through index.php?p=...)
+    RewriteRule ^(config|helpers|views|data|\.git)(/|$) - [F,L]
+    RewriteRule ^public/.*\.php$ - [F,L]
 </IfModule>

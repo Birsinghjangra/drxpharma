@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Demo Supplier",
+        "contact": "Admin",
+        "phone": "9999999999",
+        "email": "supplier@drxpharma.local",
+        "address": "Demo address",
+        "gst_no": "",
+        "dl_no": "",
+        "updated_at": "2026-10-27 08:12:03",
+        "created_at": "2026-10-27 08:12:03",
+        "id": 1
+    }
+]

@@ -72,8 +72,8 @@ $cfg = getSettings();
   <?php endif; ?>
 
   <form method="POST" novalidate><?=csrfField()?>
-    <div class="form-group"><label class="form-label">Email Address</label>
-      <input class="form-control" type="email" name="email" value="<?=e(post('email'))?>" required autofocus>
+    <div class="form-group"><label class="form-label">Email / Username</label>
+      <input class="form-control" type="text" name="email" value="<?=e(post('email'))?>" required autofocus>
     </div>
     <div class="form-group" style="margin-bottom:18px"><label class="form-label">Password</label>
       <input class="form-control" type="password" name="password" required>

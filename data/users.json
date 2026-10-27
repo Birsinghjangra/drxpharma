@@ -3,11 +3,21 @@
         "name": "Bir Singh Jangra",
         "username": "vicky",
         "email": "birsinghjangra15042000@gmail.com",
-        "password": "$2y$10$cYoaKgoAGLmMZvYp3WvhNOQWYWUteGdk7LKsY6Fsf0tIV3HEs\/Uwa",
+        "password": "$2y$10$cYoaKgoAGLmMZvYp3WvhNOQWYWUteGdk7LKsY6Fsf0tIV3HEs/Uwa",
         "role": "admin",
         "active": 1,
         "created_at": "2026-10-25 21:58:38",
         "id": 1,
         "last_login": "2026-10-26 09:24:58"
+    },
+    {
+        "name": "Admin",
+        "username": "admin",
+        "email": "admin@drxpharma.local",
+        "password": "$2y$10$.XjmsserdO/i2Ef0Tuwa/ekqhROsRZQMr3grr6.oKsGQ4i.PGTvES",
+        "role": "admin",
+        "active": 1,
+        "created_at": "2026-10-27 08:12:03",
+        "id": 2
     }
 ]

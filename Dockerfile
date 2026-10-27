@@ -1,13 +1,10 @@
 FROM php:8.2-apache
 
-RUN docker-php-ext-install mysqli pdo pdo_mysql
-RUN a2enmod rewrite
+RUN docker-php-ext-install mysqli pdo pdo_mysql \
+ && a2enmod rewrite \
+ && sed -ri 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf
 
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
-    /etc/apache2/sites-available/*.conf \
-    /etc/apache2/apache2.conf \
-    /etc/apache2/conf-available/*.conf
-
+# Web root is the project root: index.php is the front controller (?p=...)
 COPY . /var/www/html/
-RUN chown -R www-data:www-data /var/www/html
+RUN chown -R www-data:www-data /var/www/html \
+ && chmod -R u+rwX /var/www/html/data
